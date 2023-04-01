@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">University</string>
+    <string name="main">Вуз мечты</string>
+    <string name="down">Войдите в свою учетную запись!</string>
+    <string name="signin">Войти</string>
+    <string name="register">Зарегистрироваться</string>
+
+
+</resources>
