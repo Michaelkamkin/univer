@@ -7,30 +7,29 @@
     android:layout_height="match_parent"
     tools:context=".Menu">
     <LinearLayout
+
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:gravity="center">
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_choose_university"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginRight="6dp"
             android:text="Выбрать вуз" />
-
-        <View
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"/>
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_calculate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Калькулятор ЕГЭ"
-            android:layout_gravity="center_vertical|center_horizontal"/>
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginRight="6dp"
+            android:text="Калькулятор ЕГЭ" />
+
 
     </LinearLayout>
+
 
 
 </RelativeLayout>

@@ -30,7 +30,7 @@ public class Menu extends AppCompatActivity {
         button_calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Add your code to launch the calculator activity here
+
             }
         });
     }
