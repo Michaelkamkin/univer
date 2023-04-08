@@ -134,7 +134,7 @@ RelativeLayout root;
                 return;
             }
             if(password.getText().toString().length()<3){
-                Snackbar.make(root," Введите пароль,который более 3 символов",Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(root," Введите пароль, который длинее 3 символов",Snackbar.LENGTH_SHORT).show();
                 return;
             }
             // Регистрация пользователя
