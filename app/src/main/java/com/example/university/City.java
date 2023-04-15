@@ -20,8 +20,7 @@ public class City extends AppCompatActivity {
         button_peter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(City.this, Spb.class);
-                startActivity(intent);
+
             }
         });
     }

@@ -6,33 +6,43 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 
 public class Menu extends AppCompatActivity {
-    Button button_choose_university,button_calculate;
+    private CheckBox checkboxItmo;
+    private CheckBox checkboxPolytech;
+    private Button buttonNext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_menu);
 
-         button_choose_university = findViewById(id.button_choose_university);
-        button_calculate = findViewById(id.button_calculate);
-        button_choose_university.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Menu.this, City.class);
-                startActivity(intent);
+        checkboxItmo = findViewById(R.id.checkbox_itmo);
+        checkboxPolytech = findViewById(R.id.checkbox_polytech);
+        buttonNext = findViewById(R.id.button_next);
+
+        checkboxItmo.setOnCheckedChangeListener((checkbox, isChecked) -> {
+            if (isChecked) {
+                DatabaseHelper.getNames().addOnSuccessListener(names -> {
+                    for (String name : names) {
+                        Log.d("Firebase", "Name: " + name);
+                    }
+                });
             }
         });
 
-        View button_calculate = findViewById(id.button_calculate);
-        button_calculate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        checkboxPolytech.setOnCheckedChangeListener((checkbox, isChecked) -> {
 
-            }
+        });
+
+        buttonNext.setOnClickListener(view -> {
+
         });
     }
-
 }
+
+

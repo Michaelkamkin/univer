@@ -6,30 +6,51 @@
     android:id="@+id/root_element"
     android:layout_height="match_parent"
     tools:context=".Menu">
+    <TextView
+        android:id="@+id/text"
+        android:layout_alignParentBottom="true"
+        android:textSize="15sp"
+        android:textColor="@color/red"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="400dp"
+         />
     <LinearLayout
-
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_choose_university"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_marginRight="6dp"
-            android:text="Выбрать вуз" />
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_calculate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_marginRight="6dp"
-            android:text="Калькулятор ЕГЭ" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-500dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_above="@+id/text">
 
+
+        <CheckBox
+            android:id="@+id/checkbox_itmo"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginRight="6dp"
+            android:text="Итмо" />
+
+        <CheckBox
+            android:id="@+id/checkbox_polytech"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginRight="6dp"
+            android:text="Политех" />
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Далее"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"/>
 
 
 </RelativeLayout>
