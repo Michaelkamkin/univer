@@ -6,17 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class Menu extends AppCompatActivity {
     private CheckBox checkbox_itmo;
@@ -31,10 +22,12 @@ public class Menu extends AppCompatActivity {
         button_next = findViewById(id.button_next);
 
         button_next.setOnClickListener(view -> {
+            Intent intent = new Intent(Menu.this, programms.class);
             if (checkbox_itmo.isChecked()) {
-                Intent intent = new Intent(Menu.this, City.class);
+intent.putExtra("data","Itmo");
                 startActivity(intent);
             }
+            startActivity(intent);
         });
     }
 }
