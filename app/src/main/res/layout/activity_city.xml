@@ -1,36 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/root_element"
-
-    android:layout_height="match_parent"
-    tools:context=".City">
+    android:layout_height="match_parent">
     <LinearLayout
-
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_peter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_marginRight="6dp"
-            android:text="Санкт-Петербург" />
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_moscow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_marginRight="6dp"
-            android:text="Москва" />
+        android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/container"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-
+    </ScrollView>
+</LinearLayout>
 
 </RelativeLayout>

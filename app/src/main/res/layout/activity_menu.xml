@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="400dp"
-         />
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,13 +33,7 @@
             android:layout_marginRight="6dp"
             android:text="Итмо" />
 
-        <CheckBox
-            android:id="@+id/checkbox_polytech"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_marginRight="6dp"
-            android:text="Политех" />
+
 
     </LinearLayout>
 

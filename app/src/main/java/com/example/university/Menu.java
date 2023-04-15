@@ -6,43 +6,35 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class Menu extends AppCompatActivity {
-    private CheckBox checkboxItmo;
-    private CheckBox checkboxPolytech;
-    private Button buttonNext;
+    private CheckBox checkbox_itmo;
+    private Button button_next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_menu);
 
-        checkboxItmo = findViewById(R.id.checkbox_itmo);
-        checkboxPolytech = findViewById(R.id.checkbox_polytech);
-        buttonNext = findViewById(R.id.button_next);
+        checkbox_itmo = findViewById(R.id.checkbox_itmo);
+        button_next = findViewById(id.button_next);
 
-        checkboxItmo.setOnCheckedChangeListener((checkbox, isChecked) -> {
-            if (isChecked) {
-                DatabaseHelper.getNames().addOnSuccessListener(names -> {
-                    for (String name : names) {
-                        Log.d("Firebase", "Name: " + name);
-                    }
-                });
+        button_next.setOnClickListener(view -> {
+            if (checkbox_itmo.isChecked()) {
+                Intent intent = new Intent(Menu.this, City.class);
+                startActivity(intent);
             }
-        });
-
-        checkboxPolytech.setOnCheckedChangeListener((checkbox, isChecked) -> {
-
-        });
-
-        buttonNext.setOnClickListener(view -> {
-
         });
     }
 }
-
-
