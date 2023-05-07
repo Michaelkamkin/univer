@@ -22,9 +22,9 @@ public class Menu extends AppCompatActivity {
         button_next = findViewById(id.button_next);
 
         button_next.setOnClickListener(view -> {
-            Intent intent = new Intent(Menu.this, programms.class);
+            Intent intent = new Intent(Menu.this, programs.class);
             if (checkbox_itmo.isChecked()) {
-intent.putExtra("data","Itmo");
+
                 startActivity(intent);
             }
             startActivity(intent);

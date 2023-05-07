@@ -31,9 +31,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_marginRight="6dp"
-            android:text="Итмо" />
+            android:text="Спб" />
 
-
+        <CheckBox
+            android:id="@+id/checkbox_polytech"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginRight="6dp"
+            android:text="Москва" />
 
     </LinearLayout>
 

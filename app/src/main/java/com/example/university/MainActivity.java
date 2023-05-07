@@ -54,6 +54,7 @@ RelativeLayout root;
 
     }
 
+
     private void showSigninWindow() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle("Войти");
