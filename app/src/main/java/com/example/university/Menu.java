@@ -11,7 +11,6 @@ import android.widget.CheckBox;
 
 public class Menu extends AppCompatActivity {
     private CheckBox checkbox_itmo;
-    private Button button_next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +18,7 @@ public class Menu extends AppCompatActivity {
         setContentView(layout.activity_menu);
 
         checkbox_itmo = findViewById(R.id.checkbox_itmo);
-        button_next = findViewById(id.button_next);
+        Button button_next = findViewById(id.button_next);
 
         button_next.setOnClickListener(view -> {
             Intent intent = new Intent(Menu.this, programs.class);

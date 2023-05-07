@@ -38,7 +38,7 @@ public class programs extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Итмо");
         mProgramsList = (ListView) findViewById(R.id.programs_list);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.list_item_program);
         mProgramsList.setAdapter(adapter);
 
         mDatabase.addValueEventListener(new ValueEventListener() {
