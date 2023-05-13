@@ -65,7 +65,7 @@ RelativeLayout root;
                 return;
             }
             auth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnSuccessListener(authResult -> {
-            startActivity(new Intent(MainActivity.this, Menu.class));
+            startActivity(new Intent(MainActivity.this,Menu.class));
             finish();
             }).addOnFailureListener(e -> Snackbar.make(root,"Ошибка авторизации. " + e.getMessage(),Snackbar.LENGTH_SHORT).show());
 
