@@ -29,11 +29,11 @@ public class ChooseUniversity extends AppCompatActivity {
         dbHelper = new MyDatabaseHelper(this);
         universities = new ArrayList<>();
 
-        // Получаем город из Intent
+
         Intent intent = getIntent();
         String city = intent.getStringExtra("city");
 
-        // Получаем университеты данного города из базы данных
+
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT universities._id, universities.name, universities.city_id FROM universities INNER JOIN cities ON universities.city_id = cities._id WHERE cities.name = ?;", new String[]{city});
         while (cursor.moveToNext()) {
@@ -51,7 +51,7 @@ public class ChooseUniversity extends AppCompatActivity {
         cursor.close();
         db.close();
 
-        // Создаем адаптер для списка университетов
+
         universitiesArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getUniversityNames());
         listViewUniversities = findViewById(R.id.listview_universities);
         listViewUniversities.setAdapter(universitiesArrayAdapter);

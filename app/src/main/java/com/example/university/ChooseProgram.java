@@ -29,11 +29,11 @@ public class ChooseProgram extends AppCompatActivity {
         dbHelper = new MyDatabaseHelper(this);
         programs = new ArrayList<>();
 
-        // Получаем университет из Intent
+
         Intent intent = getIntent();
         University university = (University) intent.getSerializableExtra("university");
 
-        // Получаем программы данного университета из базы данных
+
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM programs WHERE university_id = ?;", new String[]{String.valueOf(university.getId())});
         while (cursor.moveToNext()) {
@@ -52,7 +52,7 @@ public class ChooseProgram extends AppCompatActivity {
         cursor.close();
         db.close();
 
-        // Создаем адаптер для списка программ
+
         programsArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getProgramNames());
         listViewPrograms = findViewById(R.id.listview_programs);
         listViewPrograms.setAdapter(programsArrayAdapter);
@@ -60,7 +60,7 @@ public class ChooseProgram extends AppCompatActivity {
         listViewPrograms.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                // Открытие ссылки в браузере
+
                 String url = "https://bmstu.ru/bachelor/majors/prikladnaa-informatika-090303";
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(url));

@@ -20,21 +20,21 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Создаем таблицы в базе данных
+
         db.execSQL("CREATE TABLE cities ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL);");
         db.execSQL("CREATE TABLE universities ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, city_id INTEGER NOT NULL, FOREIGN KEY(city_id) REFERENCES cities(_id));");
         db.execSQL("CREATE TABLE programs ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, university_id INTEGER NOT NULL, FOREIGN KEY(university_id) REFERENCES universities(_id));");
-        // Вставляем начальные данные в таблицу cities
+
         db.execSQL("INSERT INTO cities(name) VALUES('Спб');");
         db.execSQL("INSERT INTO cities(name) VALUES('Москва');");
-        // Вставляем начальные данные в таблицу universities
+
         db.execSQL("INSERT INTO universities(name, city_id) VALUES('Итмо', 1);");
         db.execSQL("INSERT INTO universities(name, city_id) VALUES('Политех', 1);");
         db.execSQL("INSERT INTO universities(name, city_id) VALUES('Спбгу', 1);");
         db.execSQL("INSERT INTO universities(name, city_id) VALUES('Мфти', 2);");
         db.execSQL("INSERT INTO universities(name, city_id) VALUES('Мгу', 2);");
         db.execSQL("INSERT INTO universities(name, city_id) VALUES('Мгту', 2);");
-        // Вставляем начальные данные в таблицу programs
+
         db.execSQL("INSERT INTO programs(name, university_id) VALUES('Компьютерные системы и технологии', 1);");
         db.execSQL("INSERT INTO programs(name, university_id) VALUES('Разработка программного обеспечения', 1);");
         db.execSQL("INSERT INTO programs(name, university_id) VALUES('Компьютерные технологии в дизайне', 1);");
@@ -54,7 +54,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Обновление базы данных
+
         db.execSQL("DROP TABLE IF EXISTS cities;");
         db.execSQL("DROP TABLE IF EXISTS universities;");
         db.execSQL("DROP TABLE IF EXISTS programs;");
