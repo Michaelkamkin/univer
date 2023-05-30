@@ -2,62 +2,79 @@ package com.example.university;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.util.ArrayList;
-import java.util.List;
+import androidx.annotation.Nullable;
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
+    private static final int DB_VERSION = 1;
+    private static final String DB_NAME = "university_db";
+    private static final String CITIES_TABLE = "cities";
+    private static final String PROGRAMS_TABLE = "programs";
 
-    private static final String DATABASE_NAME = "mydatabase.db";
-    private static final int DATABASE_VERSION = 1;
+    // Строка создания таблицы "города"
+    private static final String CREATE_CITIES_TABLE = "CREATE TABLE " +
+            CITIES_TABLE + " (id INTEGER PRIMARY KEY, name TEXT)";
+    // Строка создания таблицы "программы"
+    private static final String CREATE_PROGRAMS_TABLE = "CREATE TABLE " +
+            PROGRAMS_TABLE + " (id INTEGER PRIMARY KEY, name TEXT, " +
+            "city_id INTEGER, budget_seats INTEGER, tuition_fee INTEGER, " +
+            "duration INTEGER, subjects TEXT, average_grade REAL)";
 
-    public MyDatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
+    public MyDatabaseHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, name, factory, version);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-        db.execSQL("CREATE TABLE cities ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL);");
-        db.execSQL("CREATE TABLE universities ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, city_id INTEGER NOT NULL, FOREIGN KEY(city_id) REFERENCES cities(_id));");
-        db.execSQL("CREATE TABLE programs ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, university_id INTEGER NOT NULL, FOREIGN KEY(university_id) REFERENCES universities(_id));");
-
-        db.execSQL("INSERT INTO cities(name) VALUES('Спб');");
-        db.execSQL("INSERT INTO cities(name) VALUES('Москва');");
-
-        db.execSQL("INSERT INTO universities(name, city_id) VALUES('Итмо', 1);");
-        db.execSQL("INSERT INTO universities(name, city_id) VALUES('Политех', 1);");
-        db.execSQL("INSERT INTO universities(name, city_id) VALUES('Спбгу', 1);");
-        db.execSQL("INSERT INTO universities(name, city_id) VALUES('Мфти', 2);");
-        db.execSQL("INSERT INTO universities(name, city_id) VALUES('Мгу', 2);");
-        db.execSQL("INSERT INTO universities(name, city_id) VALUES('Мгту', 2);");
-
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Компьютерные системы и технологии', 1);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Разработка программного обеспечения', 1);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Компьютерные технологии в дизайне', 1);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Математика и компьютерные науки', 2);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Информатика и вычислительная техника', 2);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Информационные системы и технологии', 2);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Программирование и информационные технологии', 3);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Современное программирование', 3);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Технологии программирования', 3);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Системное программирование и прикладная математика', 4);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Математическое моделирование и компьютерные технологии', 4);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Прикладная математика и информатика', 5);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Фундаментальная информатика и информационные технологии', 5);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Информационные системы и технологии', 6);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Прикладная информатика', 6);");
+        db.execSQL(CREATE_CITIES_TABLE);
+        db.execSQL(CREATE_PROGRAMS_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Вы можете добавить конструкцию выполняемую при обновлении базы данных здесь, если это необходимо
+    }
 
-        db.execSQL("DROP TABLE IF EXISTS cities;");
-        db.execSQL("DROP TABLE IF EXISTS universities;");
-        db.execSQL("DROP TABLE IF EXISTS programs;");
-        onCreate(db);
+    // 2. Populate the "cities" table with two rows: "Спб" and "Москва".
+    public void populateCities() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("name", "Спб");
+        db.insert(CITIES_TABLE, null, values);
+
+        values.put("name", "Москва");
+        db.insert(CITIES_TABLE, null, values);
+
+        db.close();
+    }
+
+    // 3. Заполните таблицу "программы" 15 строками, по 3 для каждого университета.
+    public void populatePrograms() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("name", "Программа 1");
+        values.put("city_id", 1);
+        values.put("budget_seats", 10);
+        values.put("tuition_fee", 100000);
+        values.put("duration", 4);
+        values.put("subjects", "Математика, Физика, Информатика");
+        values.put("average_grade", 4.5);
+        db.insert(PROGRAMS_TABLE, null, values);
+        values.put("name", "Программа 2");
+        values.put("city_id", 1);
+        values.put("budget_seats", 10);
+        values.put("tuition_fee", 100000);
+        values.put("duration", 4);
+        values.put("subjects", "Математика, Физика, Информатика");
+        values.put("average_grade", 4.5);
+        db.insert(PROGRAMS_TABLE, null, values);
+
+        // ... Для каждой из 15 строк тело метода выглядит аналогично
+        db.close();
     }
 }
