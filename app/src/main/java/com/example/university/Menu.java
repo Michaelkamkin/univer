@@ -12,10 +12,18 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class Menu extends AppCompatActivity {
     private CheckBox checkBoxSpb;
     private CheckBox checkBoxMoscow;
     private Button buttonNext;
+    private String selectedCity;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +34,7 @@ public class Menu extends AppCompatActivity {
         checkBoxMoscow = findViewById(R.id.checkbox_moscow);
         buttonNext = findViewById(R.id.button_next);
 
+
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,12 +43,15 @@ public class Menu extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Можно выбрать только один город", Toast.LENGTH_SHORT).show();
                 } else if (checkBoxSpb.isChecked()) {
                     // Переход на Activity для выбора университета в СПб
+                    // selectedCity = "Спб";
+
                     Intent intent = new Intent(getApplicationContext(), ChooseUniversity.class);
                     intent.putExtra("city", "Спб");
                     startActivity(intent);
                 } else if (checkBoxMoscow.isChecked()) {
+                    //selectedCity = "Москва";
                     // Переход на Activity для выбора университета в Москве
-                    Intent intent = new Intent(getApplicationContext(),ChooseUniversity.class);
+                    Intent intent = new Intent(getApplicationContext(), ChooseUniversity.class);
                     intent.putExtra("city", "Москва");
                     startActivity(intent);
                 } else {
@@ -47,6 +59,8 @@ public class Menu extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Выберите город", Toast.LENGTH_SHORT).show();
                 }
             }
+
         });
+
     }
 }

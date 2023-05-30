@@ -17,63 +17,42 @@ import java.util.List;
 
 public class ChooseUniversity extends AppCompatActivity {
     private ListView listViewUniversities;
-    private ArrayAdapter<String> universitiesArrayAdapter;
-    private List<University> universities;
-    private MyDatabaseHelper dbHelper;
+    private String city;
+    private ArrayList<String> universities = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_universities);
 
-        dbHelper = new MyDatabaseHelper(this);
-        universities = new ArrayList<>();
+        listViewUniversities = findViewById(R.id.listview_universities);
+        city = getIntent().getStringExtra("city");
 
-        // Получаем город из Intent
-        Intent intent = getIntent();
-        String city = intent.getStringExtra("city");
+        SQLiteDatabase db = new MyDatabaseHelper(this).getReadableDatabase();
+        String[] projection = { "name" };
+        String selection = "city_id = (SELECT _id FROM cities WHERE name = ?)";
+        String[] selectionArgs = { city };
+        Cursor cursor = db.query("universities", projection, selection, selectionArgs, null, null, null);
 
-        // Получаем университеты данного города из базы данных
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT universities._id, universities.name, universities.city_id FROM universities INNER JOIN cities ON universities.city_id = cities._id WHERE cities.name = ?;", new String[]{city});
         while (cursor.moveToNext()) {
-            int idIndex = cursor.getColumnIndex("_id");
-            int nameIndex = cursor.getColumnIndex("name");
-            int cityIdIndex = cursor.getColumnIndex("city_id");
-            if (idIndex >= 0 && nameIndex >= 0 && cityIdIndex >= 0) {
-                int id = cursor.getInt(idIndex);
-                String name = cursor.getString(nameIndex);
-                int cityId = cursor.getInt(cityIdIndex);
-                University university = new University(id, name, cityId);
-                universities.add(university);
-            }
+            String name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
+            universities.add(name);
         }
+
         cursor.close();
         db.close();
 
-        // Создаем адаптер для списка университетов
-        universitiesArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, getUniversityNames());
-        listViewUniversities = findViewById(R.id.listview_universities);
-        listViewUniversities.setAdapter(universitiesArrayAdapter);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, universities);
+        listViewUniversities.setAdapter(adapter);
 
         listViewUniversities.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                University selectedUniversity = universities.get(i);
-                Intent intent = new Intent(getApplicationContext(), ChooseProgram.class);
-                intent.putExtra("university", selectedUniversity);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String university = (String) parent.getItemAtPosition(position);
+                Intent intent = new Intent(ChooseUniversity.this, ChooseProgram.class);
+                intent.putExtra("university", university);
                 startActivity(intent);
             }
         });
     }
-
-    private List<String> getUniversityNames() {
-        List<String> names = new ArrayList<>();
-        for (University university : universities) {
-            names.add(university.getName());
-        }
-        return names;
-    }
 }
-

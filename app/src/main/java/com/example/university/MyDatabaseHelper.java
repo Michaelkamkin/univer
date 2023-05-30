@@ -12,7 +12,7 @@ import java.util.List;
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "mydatabase.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public MyDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -23,7 +23,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         // Создаем таблицы в базе данных
         db.execSQL("CREATE TABLE cities ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL);");
         db.execSQL("CREATE TABLE universities ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, city_id INTEGER NOT NULL, FOREIGN KEY(city_id) REFERENCES cities(_id));");
-        db.execSQL("CREATE TABLE programs ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, university_id INTEGER NOT NULL, FOREIGN KEY(university_id) REFERENCES universities(_id));");
+        db.execSQL("CREATE TABLE programs ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, university_id INTEGER NOT NULL,FOREIGN KEY(university_id) REFERENCES universities(_id));");
+        db.execSQL("ALTER TABLE programs ADD COLUMN budget_seats INTEGER NOT NULL ;");
+        db.execSQL("ALTER TABLE programs ADD COLUMN tuition_free INTEGER NOT NULL ;");
+        db.execSQL("ALTER TABLE programs ADD COLUMN duration INTEGER NOT NULL ;");
+        db.execSQL("ALTER TABLE programs ADD COLUMN subjects TEXT NOT NULL ;");
+        db.execSQL("ALTER TABLE programs ADD COLUMN average_grade REAL NOT NULL;");
         // Вставляем начальные данные в таблицу cities
         db.execSQL("INSERT INTO cities(name) VALUES('Спб');");
         db.execSQL("INSERT INTO cities(name) VALUES('Москва');");
@@ -35,21 +40,22 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO universities(name, city_id) VALUES('Мгу', 2);");
         db.execSQL("INSERT INTO universities(name, city_id) VALUES('Мгту', 2);");
         // Вставляем начальные данные в таблицу programs
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Компьютерные системы и технологии', 1);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Разработка программного обеспечения', 1);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Компьютерные технологии в дизайне', 1);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Математика и компьютерные науки', 2);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Информатика и вычислительная техника', 2);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Информационные системы и технологии', 2);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Программирование и информационные технологии', 3);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Современное программирование', 3);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Технологии программирования', 3);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Системное программирование и прикладная математика', 4);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Математическое моделирование и компьютерные технологии', 4);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Прикладная математика и информатика', 5);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Фундаментальная информатика и информационные технологии', 5);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Информационные системы и технологии', 6);");
-        db.execSQL("INSERT INTO programs(name, university_id) VALUES('Прикладная информатика', 6);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Компьютерные системы и технологии', 1, 1000, 20000, 4, 'Предметы 1', 4.5);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Разработка программного обеспечения', 1, 100, 20000, 4, 'Предметы 1', 4.5);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Компьютерные технологии в дизайне', 1, 1006, 20000, 4, 'Предметы 1', 4.5);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Математика и компьютерные науки', 2, 100, 20000, 4, 'Предметы 1', 4.5);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Информатика и вычислительная техника', 2, 100, 20000, 4, 'Предметы 1', 4.5);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Информационные системы и технологии', 2, 100, 20000, 4, 'Предметы 1', 4.5);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Программирование и информационные технологии', 3, 100, 20000, 4, 'Предметы 1', 4.5);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Современное программирование', 3, 100, 20000, 4, 'Предметы 1', 4.5);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Технологии программирования', 3, 100, 20000, 4, 'Предметы 1', 4.5);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Системное программирование и прикладная математика', 4, 100, 20000, 4, 'Предметы 1', 4.5);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Математическое моделирование и компьютерные технологии', 4, 100, 20000, 4, 'Предметы 1', 4.5);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Прикладная математика и информатика', 5, 100, 20000, 4, 'Предметы 1', 4.5);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Фундаментальная информатика и информационные технологии', 5, 100, 20000, 4, 'Предметы 1', 4.5);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Информационные системы и технологии', 6, 100, 20000, 4, 'Предметы 1', 4.5);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Прикладная информатика', 6, 100, 20000, 4, 'Предметы 1', 4.5);");
+
     }
 
     @Override
@@ -59,5 +65,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS universities;");
         db.execSQL("DROP TABLE IF EXISTS programs;");
         onCreate(db);
+        if (oldVersion < 1 && newVersion >= 2) {
+            // add new columns to the `programs` table
+
+        }
     }
 }

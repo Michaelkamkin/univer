@@ -1,6 +1,8 @@
 package com.example.university;
 
-public class Program {
+import java.io.Serializable;
+
+public class Program implements Serializable {
     private int id;
     private String name;
     private int universityId;

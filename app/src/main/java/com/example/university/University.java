@@ -21,6 +21,7 @@ public class University implements Serializable {
         return this.name;
     }
 
+
     public int getCityId() {
         return this.cityId;
     }
