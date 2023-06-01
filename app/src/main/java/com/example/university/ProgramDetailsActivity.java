@@ -59,11 +59,11 @@ public class ProgramDetailsActivity extends AppCompatActivity {
             int duration = cursor.getInt(cursor.getColumnIndexOrThrow("duration"));
             String subjects = cursor.getString(cursor.getColumnIndexOrThrow("subjects"));
             float averageGrade = cursor.getFloat(cursor.getColumnIndexOrThrow("average_grade"));
-            budgetSeatsTextView.setText(String.valueOf(budgetSeats));
-            tuitionFreeTextView.setText(String.valueOf(tuitionFree));
-            durationTextView.setText(String.valueOf(duration));
-            subjectsTextView.setText(String.valueOf(subjects));
-            averageGradeTextView.setText(String.valueOf(averageGrade));
+            budgetSeatsTextView.setText("Бюджетные места:" +" "+ String.valueOf(budgetSeats));
+            tuitionFreeTextView.setText("Стоимость обучения:" +" "+ String.valueOf(tuitionFree));
+            durationTextView.setText("Срок обучения:" +" "+ String.valueOf(duration));
+            subjectsTextView.setText("Предметы:" +" "+String.valueOf(subjects));
+            averageGradeTextView.setText("Проходной балл:" +" "+String.valueOf(averageGrade));
         }
         cursor.close();
         db.close();

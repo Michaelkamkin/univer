@@ -12,7 +12,7 @@ import java.util.List;
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "mydatabase.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     public MyDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -65,9 +65,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS universities;");
         db.execSQL("DROP TABLE IF EXISTS programs;");
         onCreate(db);
-        if (oldVersion < 1 && newVersion >= 2) {
-            // add new columns to the `programs` table
 
-        }
     }
 }
