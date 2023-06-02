@@ -1,5 +1,6 @@
 package com.example.university;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,7 @@ import androidx.annotation.Nullable;
 import java.util.List;
 
 public class UniversityAdapter extends ArrayAdapter<University> {
-    private Context context;
+    private final Context context;
 
     public UniversityAdapter(Context context, List<University> universities) {
         super(context, 0, universities);
@@ -34,7 +35,7 @@ public class UniversityAdapter extends ArrayAdapter<University> {
         University university = getItem(position);
         if (university != null) {
             String logoFileName = university.getLogoFileName();
-            int logoResId = context.getResources().getIdentifier(logoFileName, "drawable", context.getPackageName());
+            @SuppressLint("DiscouragedApi") int logoResId = context.getResources().getIdentifier(logoFileName, "drawable", context.getPackageName());
             imageViewLogo.setImageResource(logoResId);
             textViewName.setText(university.getName());
         }
