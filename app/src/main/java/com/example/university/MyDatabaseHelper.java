@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "mydatabase.db";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
 
     public MyDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -31,9 +31,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO universities(name, city_id, logo) VALUES('Итмо', 1, 'logo_itmo.jpg');");
         db.execSQL("INSERT INTO universities(name, city_id, logo) VALUES('Политех', 1, 'logo_politech.jpg');");
         db.execSQL("INSERT INTO universities(name, city_id, logo) VALUES('Спбгу', 1, 'logo_spbgu.jpg');");
-        db.execSQL("INSERT INTO universities(name, city_id) VALUES('Мфти', 2, 'logo_itmo.jpg');");
-        db.execSQL("INSERT INTO universities(name, city_id) VALUES('Мгу', 2, 'logo_itmo.jpg');");
-        db.execSQL("INSERT INTO universities(name, city_id) VALUES('Мгту', 2, 'logo_itmo.jpg');");
+        db.execSQL("INSERT INTO universities(name, city_id, logo) VALUES('Мфти', 2, 'logo_itmo.jpg');");
+        db.execSQL("INSERT INTO universities(name, city_id, logo) VALUES('Мгу', 2, 'logo_itmo.jpg');");
+        db.execSQL("INSERT INTO universities(name, city_id, logo) VALUES('Мгту', 2, 'logo_itmo.jpg');");
         // Вставляем начальные данные в таблицу programs
         db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Компьютерные системы и технологии', 1, 1000, 20000, 4, 'Предметы 1', 4.5);");
         db.execSQL("INSERT INTO programs(name, university_id,budget_seats,tuition_free,duration,subjects,average_grade) VALUES('Разработка программного обеспечения', 1, 100, 20000, 4, 'Предметы 1', 4.5);");
