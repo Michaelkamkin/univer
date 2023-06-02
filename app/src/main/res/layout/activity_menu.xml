@@ -1,37 +1,73 @@
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <CheckBox
-        android:id="@+id/checkbox_spb"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Спб"
-        android:checked="false"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        android:text="Выберите город"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
 
-    <CheckBox
-        android:id="@+id/checkbox_moscow"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Москва"
-        android:checked="false"
-        android:layout_below="@id/checkbox_spb"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        android:gravity="center_vertical">
+
+        <CheckBox
+            android:id="@+id/checkbox_spb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Санкт-Петербург"
+            android:checked="false"
+            android:layout_marginBottom="8dp" />
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/spb_image"
+            android:scaleType="centerCrop"
+            android:contentDescription="Санкт-Петербург"
+            android:layout_below="@id/checkbox_spb"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <CheckBox
+            android:id="@+id/checkbox_moscow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Москва"
+            android:checked="false"
+            android:layout_marginBottom="8dp" />
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/moscow_image"
+            android:scaleType="centerCrop"
+            android:contentDescription="Москва"
+            android:layout_below="@id/checkbox_moscow"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp" />
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/button_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Далее"
-        android:layout_below="@id/checkbox_moscow"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_gravity="center_horizontal" />
 
-
-</RelativeLayout>
+</LinearLayout>
