@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,7 +12,8 @@
         android:paddingBottom="4dp"
         android:text="Количество бюджетных мест"
         android:textColor="#000000"
-        android:textSize="16sp" />
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/budget_seats_text_view"
@@ -29,14 +31,15 @@
         android:paddingBottom="4dp"
         android:text="Стоимость обучения "
         android:textColor="#000000"
-        android:textSize="16sp" />
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tuition_free_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#808080"
+        android:textSize="18sp"
+        android:textColor="#000000"
         android:paddingBottom="4dp"/>
 
     <TextView
@@ -46,14 +49,15 @@
         android:paddingBottom="4dp"
         android:text="Срок обучения"
         android:textColor="#000000"
-        android:textSize="16sp" />
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/duration_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#808080"
+        android:textSize="18sp"
+        android:textColor="#000000"
         android:paddingBottom="4dp"/>
 
     <TextView
@@ -61,16 +65,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
-        android:text="Прохожной балл"
+        android:text="Проходной балл"
         android:textColor="#000000"
-        android:textSize="16sp" />
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/average_grade_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#808080"
+        android:textSize="18sp"
+        android:textColor="#000000"
         android:paddingBottom="4dp"/>
 
     <TextView
@@ -80,7 +85,8 @@
         android:paddingBottom="4dp"
         android:text="Предметы"
         android:textColor="#000000"
-        android:textSize="16sp" />
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/subjects_text_view"

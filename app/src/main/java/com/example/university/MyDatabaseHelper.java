@@ -28,7 +28,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO cities(name) VALUES('Спб');");
         db.execSQL("INSERT INTO cities(name) VALUES('Москва');");
         // Вставляем начальные данные в таблицу universities
-        db.execSQL("INSERT INTO universities(name, city_id, logo) VALUES('Итмо', 1, 'logo_itmo.jpg');");
+        db.execSQL("INSERT INTO universities(name, city_id, logo) VALUES('Итмо', 1, logo_itmo.jpg);");
         db.execSQL("INSERT INTO universities(name, city_id, logo) VALUES('Политех', 1, 'logo_politech.jpg');");
         db.execSQL("INSERT INTO universities(name, city_id, logo) VALUES('Спбгу', 1, 'logo_spbgu.jpg');");
         db.execSQL("INSERT INTO universities(name, city_id, logo) VALUES('Мфти', 2, 'logo_itmo.jpg');");

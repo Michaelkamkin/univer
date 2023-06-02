@@ -8,28 +8,21 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ProgramDetailsActivity extends AppCompatActivity {
-    private TextView budgetSeatsTextView;
-    private TextView tuitionFreeTextView;
-    private TextView durationTextView;
-    private TextView subjectsTextView;
-    private TextView averageGradeTextView;
-    private String program;
-    private SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_program_details);
 
-        budgetSeatsTextView = findViewById(R.id.budget_seats_text_view);
-        tuitionFreeTextView = findViewById(R.id.tuition_free_text_view);
-        durationTextView = findViewById(R.id.duration_text_view);
-        subjectsTextView = findViewById(R.id.subjects_text_view);
-        averageGradeTextView = findViewById(R.id.average_grade_text_view);
+        TextView budgetSeatsTextView = findViewById(R.id.budget_seats_text_view);
+        TextView tuitionFreeTextView = findViewById(R.id.tuition_free_text_view);
+        TextView durationTextView = findViewById(R.id.duration_text_view);
+        TextView subjectsTextView = findViewById(R.id.subjects_text_view);
+        TextView averageGradeTextView = findViewById(R.id.average_grade_text_view);
 
-        program = getIntent().getStringExtra("program");
+        String program = getIntent().getStringExtra("program");
 
-        db = new MyDatabaseHelper(this).getReadableDatabase();
+        SQLiteDatabase db = new MyDatabaseHelper(this).getReadableDatabase();
         String[] projection = {"budget_seats", "tuition_free", "duration", "subjects", "average_grade"};
         String selection = "name = ?";
         String[] selectionArgs = {program};

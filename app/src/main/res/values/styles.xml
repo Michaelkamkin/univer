@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <style name="ListItemStyle" parent="Widget.AppCompat.ListView">
         <!-- Настройка цветов, шрифтов и других атрибутов для элемента списка -->
         <item name="android:textColor">#000000</item>
@@ -7,7 +7,7 @@
         <item name="android:padding">8dp</item>
     </style>
 
-    <style name="ListDividerStyle" parent="Widget.AppCompat.ListView">
+    <style name="ListDividerStyle" parent="Widget.AppCompat.ListView" tools:keep="@style/ListDividerStyle">
         <!-- Настройка цвета и размера разделителя -->
         <item name="android:divider">#CCCCCC</item>
         <item name="android:dividerHeight">5dp</item>
