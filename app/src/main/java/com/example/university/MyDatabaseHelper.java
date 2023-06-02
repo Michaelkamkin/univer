@@ -1,18 +1,13 @@
 package com.example.university;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "mydatabase.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     public MyDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -22,7 +17,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // Создаем таблицы в базе данных
         db.execSQL("CREATE TABLE cities ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL);");
-        db.execSQL("CREATE TABLE universities ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, city_id INTEGER NOT NULL, FOREIGN KEY(city_id) REFERENCES cities(_id));");
+        db.execSQL("CREATE TABLE universities (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, city_id INTEGER NOT NULL, logo TEXT, FOREIGN KEY(city_id) REFERENCES cities(_id));");
         db.execSQL("CREATE TABLE programs ( _id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, university_id INTEGER NOT NULL,FOREIGN KEY(university_id) REFERENCES universities(_id));");
         db.execSQL("ALTER TABLE programs ADD COLUMN budget_seats INTEGER NOT NULL ;");
         db.execSQL("ALTER TABLE programs ADD COLUMN tuition_free INTEGER NOT NULL ;");
@@ -33,9 +28,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO cities(name) VALUES('Спб');");
         db.execSQL("INSERT INTO cities(name) VALUES('Москва');");
         // Вставляем начальные данные в таблицу universities
-        db.execSQL("INSERT INTO universities(name, city_id) VALUES('Итмо', 1);");
-        db.execSQL("INSERT INTO universities(name, city_id) VALUES('Политех', 1);");
-        db.execSQL("INSERT INTO universities(name, city_id) VALUES('Спбгу', 1);");
+        db.execSQL("INSERT INTO universities(name, city_id, logo) VALUES('Итмо', 1, 'logo_itmo.jpg');");
+        db.execSQL("INSERT INTO universities(name, city_id, logo) VALUES('Политех', 1, 'logo_politech.jpg');");
+        db.execSQL("INSERT INTO universities(name, city_id, logo) VALUES('Спбгу', 1, 'logo_spbgu.jpg');");
         db.execSQL("INSERT INTO universities(name, city_id) VALUES('Мфти', 2);");
         db.execSQL("INSERT INTO universities(name, city_id) VALUES('Мгу', 2);");
         db.execSQL("INSERT INTO universities(name, city_id) VALUES('Мгту', 2);");
