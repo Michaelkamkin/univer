@@ -1,28 +1,19 @@
 package com.example.university;
 
-import java.io.Serializable;
-
-public class University implements Serializable {
-    private int id;
+public class University {
     private String name;
-    private int cityId;
+    private int logoResId;
 
-    public University(int id, String name, int cityId) {
-        this.id = id;
+    public University(String name, int logoResId) {
         this.name = name;
-        this.cityId = cityId;
-    }
-
-    public int getId() {
-        return this.id;
+        this.logoResId = logoResId;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
-
-    public int getCityId() {
-        return this.cityId;
+    public int getLogoResId() {
+        return logoResId;
     }
 }

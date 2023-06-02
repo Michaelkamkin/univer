@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Состояние при нажатии -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <!-- Настройка фона при нажатии -->
+            <solid android:color="#DDDDDD" />
+        </shape>
+    </item>
+    <!-- Состояние при фокусе -->
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <!-- Настройка фона при фокусе -->
+            <solid android:color="#EEEEEE" />
+        </shape>
+    </item>
+    <!-- Состояние при выборе -->
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <!-- Настройка фона при выборе -->
+            <solid android:color="#CCCCCC" />
+        </shape>
+    </item>
+    <!-- Состояние по умолчанию -->
+    <item>
+        <shape android:shape="rectangle">
+            <!-- Настройка фона по умолчанию -->
+            <solid android:color="#FFFFFF" />
+        </shape>
+    </item>
+</selector>
