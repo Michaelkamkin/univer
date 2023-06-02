@@ -2,18 +2,18 @@ package com.example.university;
 
 public class University {
     private String name;
-    private int logoResId;
+    private String logoFileName;
 
-    public University(String name, int logoResId) {
+    public University(String name, String logoFileName) {
         this.name = name;
-        this.logoResId = logoResId;
+        this.logoFileName = logoFileName;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getLogoResId() {
-        return logoResId;
+    public String getLogoFileName() {
+        return logoFileName;
     }
 }

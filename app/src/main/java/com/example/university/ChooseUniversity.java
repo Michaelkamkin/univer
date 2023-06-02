@@ -34,9 +34,10 @@ public class ChooseUniversity extends AppCompatActivity {
 
         while (cursor.moveToNext()) {
             String name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
-            int logoResId = cursor.getInt(cursor.getColumnIndexOrThrow("logo"));
-            University university = new University(name, logoResId);
+            String logoFileName = cursor.getString(cursor.getColumnIndexOrThrow("logo"));
+            University university = new University(name, logoFileName);
             universitiesList.add(university);
+
         }
 
         cursor.close();

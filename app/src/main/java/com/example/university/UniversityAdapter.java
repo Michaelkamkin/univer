@@ -8,6 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import java.util.List;
 
 public class UniversityAdapter extends ArrayAdapter<University> {
@@ -18,19 +21,23 @@ public class UniversityAdapter extends ArrayAdapter<University> {
         this.context = context;
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_university, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.list_item_university, parent, false);
         }
 
-        University currentUniversity = getItem(position);
+        ImageView imageViewLogo = convertView.findViewById(R.id.imageview_logo);
+        TextView textViewName = convertView.findViewById(R.id.textview_name);
 
-        ImageView logoImageView = convertView.findViewById(R.id.imageview_logo);
-        TextView nameTextView = convertView.findViewById(R.id.textview_name);
-
-        logoImageView.setImageResource(currentUniversity.getLogoResId());
-        nameTextView.setText(currentUniversity.getName());
+        University university = getItem(position);
+        if (university != null) {
+            String logoFileName = university.getLogoFileName();
+            int logoResId = context.getResources().getIdentifier(logoFileName, "drawable", context.getPackageName());
+            imageViewLogo.setImageResource(logoResId);
+            textViewName.setText(university.getName());
+        }
 
         return convertView;
     }
