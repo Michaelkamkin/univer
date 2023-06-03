@@ -5,7 +5,7 @@
     android:id="@+id/root_element"
     android:background="@drawable/project"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".Controller.MainActivity"
     tools:ignore="Overdraw">
 
 

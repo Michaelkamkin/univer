@@ -4,10 +4,6 @@
     <string name="down">Войдите в свою учетную запись!</string>
     <string name="signin">Войти</string>
     <string name="register">Зарегистрироваться</string>
-    <string name="budget_seats">Бюджетные места: %d</string>
-    <string name="tuition_free">Стоимость обучения: %d</string>
-    <string name="duration">Продолжительность: %d</string>
-    <string name="subjects">Предметы: %s</string>
-    <string name="average_grade">Средний балл: %.2f</string>
+
 
 </resources>

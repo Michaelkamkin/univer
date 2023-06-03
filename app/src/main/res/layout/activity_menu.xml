@@ -15,6 +15,7 @@
         tools:ignore="HardcodedText" />
 
     <RelativeLayout
+        android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:gravity="center_vertical">
@@ -23,7 +24,6 @@
             android:id="@+id/checkbox_spb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:checked="false"
             android:text="Санкт-Петербург"
             tools:ignore="HardcodedText" />
@@ -32,7 +32,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/checkbox_spb"
-            android:layout_marginTop="2dp"
             android:contentDescription="Санкт-Петербург"
             android:scaleType="centerCrop"
             android:src="@drawable/spb_image"
@@ -41,6 +40,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/relativeLayout2"
         android:layout_width="wrap_content"
         android:layout_height="300dp"
         android:gravity="center_vertical">
@@ -49,7 +49,6 @@
             android:id="@+id/checkbox_moscow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:checked="false"
             android:text="Москва"
             tools:ignore="HardcodedText" />
@@ -69,10 +68,15 @@
 
     <Button
         android:id="@+id/button_next"
-        android:layout_width="150dp"
+        android:layout_width="133dp"
         android:layout_height="50dp"
+        android:layout_below="@id/relativeLayout2"
+        android:layout_alignParentBottom="true"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
         android:text="Далее"
         tools:ignore="HardcodedText" />
+
+
 
 </LinearLayout>

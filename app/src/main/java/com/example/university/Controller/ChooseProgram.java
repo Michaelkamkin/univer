@@ -1,4 +1,4 @@
-package com.example.university;
+package com.example.university.Controller;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -8,6 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.university.Models.MyDatabaseHelper;
+import com.example.university.R;
 
 import java.util.ArrayList;
 

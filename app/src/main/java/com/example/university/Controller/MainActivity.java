@@ -1,4 +1,4 @@
-package com.example.university;
+package com.example.university.Controller;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.university.Models.User;
+import com.example.university.R;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -65,7 +66,7 @@ RelativeLayout root;
                 return;
             }
             auth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnSuccessListener(authResult -> {
-            startActivity(new Intent(MainActivity.this,Menu.class));
+            startActivity(new Intent(MainActivity.this, Menu.class));
             finish();
             }).addOnFailureListener(e -> Snackbar.make(root,"Ошибка авторизации. " + e.getMessage(),Snackbar.LENGTH_SHORT).show());
 

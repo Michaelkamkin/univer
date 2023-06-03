@@ -1,4 +1,4 @@
-package com.example.university;
+package com.example.university.Controller;
 
 import static com.example.university.R.layout;
 
@@ -9,6 +9,9 @@ import android.widget.CheckBox;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.university.Controller.ChooseUniversity;
+import com.example.university.R;
 
 public class Menu extends AppCompatActivity {
     private CheckBox checkBoxSpb;
