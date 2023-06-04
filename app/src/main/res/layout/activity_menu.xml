@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="Выберите город"
-        android:textSize="16sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         tools:ignore="HardcodedText" />
 
