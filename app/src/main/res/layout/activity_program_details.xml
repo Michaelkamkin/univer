@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
         android:text="Количество бюджетных мест"
-        android:textSize="18sp"
+        android:textSize="22sp"
+        android:textStyle="bold"
         tools:ignore="HardcodedText" />
 
     <TextView
@@ -27,7 +28,8 @@
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
         android:text="Стоимость обучения "
-        android:textSize="18sp"
+        android:textSize="22sp"
+        android:textStyle="bold"
         tools:ignore="HardcodedText" />
 
     <TextView
@@ -43,7 +45,8 @@
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
         android:text="Срок обучения"
-        android:textSize="18sp"
+        android:textSize="22sp"
+        android:textStyle="bold"
         tools:ignore="HardcodedText" />
 
     <TextView
@@ -59,7 +62,8 @@
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
         android:text="Проходной балл"
-        android:textSize="18sp"
+        android:textSize="22sp"
+        android:textStyle="bold"
         tools:ignore="HardcodedText" />
 
     <TextView
@@ -75,7 +79,8 @@
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
         android:text="Предметы"
-        android:textSize="18sp"
+        android:textSize="22sp"
+        android:textStyle="bold"
         tools:ignore="HardcodedText" />
 
     <TextView
