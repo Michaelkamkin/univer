@@ -39,14 +39,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Models.Program"
+        <activity android:name=".service.Program"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Models.University"
+        <activity android:name=".service.University"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.example.university.Models;
+package com.example.university.service;
 
 public class University {
     private final String name;
