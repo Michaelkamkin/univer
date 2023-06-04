@@ -11,8 +11,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
         android:text="Количество бюджетных мест"
-        android:textSize="22sp"
-        android:textStyle="bold"
+        android:textSize="20sp"
         tools:ignore="HardcodedText" />
 
     <TextView
@@ -28,8 +27,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
         android:text="Стоимость обучения "
-        android:textSize="22sp"
-        android:textStyle="bold"
+        android:textSize="20sp"
         tools:ignore="HardcodedText" />
 
     <TextView
@@ -45,8 +43,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
         android:text="Срок обучения"
-        android:textSize="22sp"
-        android:textStyle="bold"
+        android:textSize="20sp"
         tools:ignore="HardcodedText" />
 
     <TextView
@@ -62,8 +59,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
         android:text="Проходной балл"
-        android:textSize="22sp"
-        android:textStyle="bold"
+        android:textSize="20sp"
         tools:ignore="HardcodedText" />
 
     <TextView
@@ -79,15 +75,14 @@
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
         android:text="Предметы"
-        android:textSize="22sp"
-        android:textStyle="bold"
+        android:textSize="20sp"
         tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/subjects_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:paddingBottom="4dp"/>
 
 </LinearLayout>

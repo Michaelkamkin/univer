@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "mydatabase.db";
-    private static final int DATABASE_VERSION = 10;
+    private static final int DATABASE_VERSION = 11;
 
     public MyDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,14 +41,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Математика и компьютерные науки', 2, 25, 220000, 4, 'информатика, русский, математика', 243);");
         db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Информатика и вычислительная техника', 2, 83, 240000, 4, 'информатика, русский, математика', 256);");
         db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Информационные системы и технологии', 2, 27, 240000, 4, 'информатика, русский, математика', 260);");
-        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Программирование и информационные технологии', 3, 25, 231.400, 4, 'информатика, русский, математика', 232);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Программирование и информационные технологии', 3, 25, 231400, 4, 'информатика, русский, математика', 232);");
         db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Современное программирование', 3, 30, 234800, 4, 'информатика, русский, математика', 281);");
         db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Технологии программирования', 3, 65, 331900, 4, 'информатика, русский, математика', 235);");
-        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Системное программирование и прикладная математика', 4, 25, 231.400, 4, 'информатика, русский, математика, физика', 378);");
-        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Прикладная математика и информатика', 4, 65, 331.900, 4, 'информатика, русский, математика', 294);");
-        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Математическое моделирование и компьютерные технологии', 4, 30, 234.800, 4, 'информатика, русский, математика', 286);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Системное программирование и прикладная математика', 4, 25, 231400, 4, 'информатика, русский, математика, физика', 378);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Прикладная математика и информатика', 4, 65, 331900, 4, 'информатика, русский, математика', 294);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Математическое моделирование и компьютерные технологии', 4, 30, 234800, 4, 'информатика, русский, математика', 286);");
         db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Прикладная математика и информатика', 5, 294, 391050, 4, 'информатика, русский, математика,физика', 405);");
-        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Фундаментальная информатика и информационные технологии', 5, 19, 391.050, 4, 'информатика, русский, математика,физика', 402);");
+        db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Фундаментальная информатика и информационные технологии', 5, 19, 391050, 4, 'информатика, русский, математика,физика', 402);");
         db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Информационные системы и технологии', 6, 56, 302533, 4, 'информатика, русский, математика', 247);");
         db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Прикладная информатика', 6, 84, 302533, 4, 'информатика, русский, математика', 277);");
         db.execSQL("INSERT INTO programs(name, university_id,budget_seats,paid_training,duration,subjects,passing_grade) VALUES('Программная инженерия', 6, 84, 302533, 4, 'информатика, русский, математика', 291);");
