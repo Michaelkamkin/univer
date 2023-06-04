@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
         android:text="Количество бюджетных мест"
-        android:textColor="#000000"
         android:textSize="18sp"
         tools:ignore="HardcodedText" />
 
@@ -21,7 +20,6 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="#000000"
         android:paddingBottom="4dp"/>
 
     <TextView
@@ -30,7 +28,6 @@
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
         android:text="Стоимость обучения "
-        android:textColor="#000000"
         android:textSize="18sp"
         tools:ignore="HardcodedText" />
 
@@ -39,7 +36,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:textColor="#000000"
         android:paddingBottom="4dp"/>
 
     <TextView
@@ -48,7 +44,6 @@
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
         android:text="Срок обучения"
-        android:textColor="#000000"
         android:textSize="18sp"
         tools:ignore="HardcodedText" />
 
@@ -57,7 +52,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:textColor="#000000"
         android:paddingBottom="4dp"/>
 
     <TextView
@@ -66,7 +60,6 @@
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
         android:text="Проходной балл"
-        android:textColor="#000000"
         android:textSize="18sp"
         tools:ignore="HardcodedText" />
 
@@ -75,7 +68,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:textColor="#000000"
         android:paddingBottom="4dp"/>
 
     <TextView
@@ -84,7 +76,6 @@
         android:layout_height="wrap_content"
         android:paddingBottom="4dp"
         android:text="Предметы"
-        android:textColor="#000000"
         android:textSize="18sp"
         tools:ignore="HardcodedText" />
 
@@ -93,7 +84,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textColor="#808080"
         android:paddingBottom="4dp"/>
 
 </LinearLayout>
