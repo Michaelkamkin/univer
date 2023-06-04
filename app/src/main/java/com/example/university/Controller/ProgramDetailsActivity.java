@@ -18,7 +18,6 @@ public class ProgramDetailsActivity extends AppCompatActivity {
     private TextView subjectsTextView;
     private TextView averageGradeTextView;
     private String program;
-    // переменные для данных
     private long selectedProgramId;
     SQLiteDatabase db;
 
@@ -27,17 +26,14 @@ public class ProgramDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_program_details);
 
-        // связываем переменные с элементами пользовательского интерфейса
         budgetSeatsTextView = findViewById(R.id.budget_seats_text_view);
         tuitionFreeTextView = findViewById(R.id.tuition_free_text_view);
         durationTextView = findViewById(R.id.duration_text_view);
         subjectsTextView = findViewById(R.id.subjects_text_view);
         averageGradeTextView = findViewById(R.id.average_grade_text_view);
 
-        // получаем выбранную программу
         program = getIntent().getStringExtra("program");
 
-        // открываем базу данных
         SQLiteDatabase db = new MyDatabaseHelper(this).getReadableDatabase();
         String[] projection = {"budget_seats", "paid_training", "duration", "subjects", "passing_grade"};
         String selection = "name = ?";

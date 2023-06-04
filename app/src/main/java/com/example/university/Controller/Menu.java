@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.university.Controller.ChooseUniversity;
 import com.example.university.R;
 
 public class Menu extends AppCompatActivity {
@@ -30,13 +29,11 @@ public class Menu extends AppCompatActivity {
 
         buttonNext.setOnClickListener(view -> {
             if (checkBoxSpb.isChecked() && checkBoxMoscow.isChecked()) {
-                // Вывод ошибки, если выбрано два
-                // города
+                // Вывод ошибки, если выбрано два города
                 Toast.makeText(getApplicationContext(), "Можно выбрать только один город", Toast.LENGTH_SHORT).show();
             } else if (checkBoxSpb.isChecked()) {
-                // Переход на Activity для
-                // выбора университета в СПб
-                // selectedCity = "Спб";
+                // Переход на Activity для выбора университета в СПб
+                // selectedCity = "Спб"
 
                 Intent intent = new Intent(getApplicationContext(), ChooseUniversity.class);
                 intent.putExtra("city", "Спб");
