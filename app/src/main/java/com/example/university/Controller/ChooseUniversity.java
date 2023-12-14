@@ -34,10 +34,12 @@ public class ChooseUniversity extends AppCompatActivity {
         String selection = "city_id = (SELECT _id FROM cities WHERE name = ?)";
         String[] selectionArgs = { city };
         Cursor cursor = db.query("universities", projection, selection, selectionArgs, null, null, null);
+        //отправляется запрос в БД
 
         while (cursor.moveToNext()) {
             String name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
             universities.add(name);
+            // получение данных из БД
         }
 
         cursor.close();
@@ -45,7 +47,7 @@ public class ChooseUniversity extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, universities);
         listViewUniversities.setAdapter(adapter);
-
+        // составление списка из полученнных данных
         listViewUniversities.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -53,6 +55,7 @@ public class ChooseUniversity extends AppCompatActivity {
                 Intent intent = new Intent(ChooseUniversity.this, ChooseProgram.class);
                 intent.putExtra("university", university);
                 startActivity(intent);
+                // обработка нажатий на элементы и передача данных в следующий класс
             }
         });
     }
